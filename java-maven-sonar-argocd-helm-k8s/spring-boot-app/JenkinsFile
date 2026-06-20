@@ -16,7 +16,7 @@ pipeline {
     // FIX: Moved 'tools' outside of 'steps' and added a basic verification step
     stage('Tools') {
       tools {
-        jdk 'jdk17'
+        jdk 'jdk21'
         maven 'Maven3'
       }
       steps {
