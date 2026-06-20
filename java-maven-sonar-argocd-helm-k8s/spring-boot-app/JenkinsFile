@@ -12,14 +12,20 @@ pipeline {
         //git branch: 'main', url: 'https://github.com/kolaanu/Jenkins-Anup-hero.git'
       }
     }
+    
+    // FIX: Moved 'tools' outside of 'steps' and added a basic verification step
     stage('Tools') {
-      steps {
-        tools {
+      tools {
         jdk 'jdk17'
         maven 'Maven3'
+      }
+      steps {
+        echo 'Configuring JDK and Maven...'
+        sh 'java -version'
+        sh 'mvn -version'
+      }
     }
-    }
-    }
+    
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
